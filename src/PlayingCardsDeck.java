@@ -71,7 +71,7 @@ public class PlayingCardsDeck<T extends PlayingCard> implements Deck<T>{
                 return null;
             }
         }
-        return new PlayingCardsDeck<PlayingCard>(returnedCards);
+        return new PlayingCardsDeck<>(returnedCards);
     }
 
     public static Deck<BlackJackPlayingCard> getSingleBlackJackDeck(){
@@ -93,7 +93,7 @@ public class PlayingCardsDeck<T extends PlayingCard> implements Deck<T>{
                 return null;
             }
         }
-        return new PlayingCardsDeck<BlackJackPlayingCard>(returnedCards);
+        return new PlayingCardsDeck<>(returnedCards);
     }
 
     public static Deck<BlackJackPlayingCard> getBlackJackDeck(int numOfDecks){
@@ -101,7 +101,12 @@ public class PlayingCardsDeck<T extends PlayingCard> implements Deck<T>{
         for (int i = 0; i < numOfDecks - 1; i++){
             blackJackDeck.addDeck(getSingleBlackJackDeck());
         }
+        blackJackDeck.shuffle();
         return blackJackDeck;
+    }
+
+    public int getRemainingCards(){
+        return deckOfCards.size();
     }
 
     public static <U extends PlayingCard> void printDeck(Deck<U> deckToPrint, int rows){
@@ -110,7 +115,7 @@ public class PlayingCardsDeck<T extends PlayingCard> implements Deck<T>{
             for (int j = 0; j < listOfCards.size()/rows; j++){
                 System.out.print(listOfCards.get((i)*listOfCards.size()/rows + j));
             }
-            System.out.println("");
+            System.out.println();
         }
         for (int i = 0; i < listOfCards.size()%rows; i++){
             System.out.print(listOfCards.get(rows * (listOfCards.size()/rows) + i));

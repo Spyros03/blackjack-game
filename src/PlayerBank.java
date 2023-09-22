@@ -32,6 +32,10 @@ public class PlayerBank {
         otherPlayerBank.deposit(transferAmount);
     }
 
+    public double getAmount(){
+        return amount;
+    }
+
     public static class InvalidAccountBalanceException extends Exception{
         public InvalidAccountBalanceException() {
         }

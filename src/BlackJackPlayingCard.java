@@ -19,4 +19,13 @@ public class BlackJackPlayingCard extends PlayingCard {
             };
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof BlackJackPlayingCard card) {
+            return (this.getRank() == card.getRank());
+        } else {
+            return false;
+        }
+    }
 }

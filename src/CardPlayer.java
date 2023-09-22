@@ -20,13 +20,32 @@ public abstract class CardPlayer<T extends Card>{
         cards = new ArrayList<>();
     }
 
-    public abstract void playMove(String move);
-
     public List<T> getCards(){
         return cards;
     }
 
     public boolean isEmptyHanded(){
         return (cards.size() == 0);
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    static class InvalidMove extends Exception{
+        public InvalidMove() {
+        }
+
+        public InvalidMove(String message) {
+            super(message);
+        }
+
+        public InvalidMove(String message, Throwable cause) {
+            super(message, cause);
+        }
+
+        public InvalidMove(Throwable cause) {
+            super(cause);
+        }
     }
 }

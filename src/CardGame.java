@@ -6,7 +6,7 @@ public abstract class CardGame<T extends CardPlayer<? extends Card>>{
     protected List<T> players;
 
     public CardGame(T...players){
-        this.players = new ArrayList(List.of(players));
+        this.players = new ArrayList<>(List.of(players));
     }
 
     public CardGame(List<T> players){
@@ -21,5 +21,5 @@ public abstract class CardGame<T extends CardPlayer<? extends Card>>{
         players.add(newPlayer);
     }
 
-    public abstract void nextTurn();
+    public abstract void nextTurn(int moveNumber);
 }

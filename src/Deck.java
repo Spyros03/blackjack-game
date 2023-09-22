@@ -13,4 +13,6 @@ public interface Deck<T extends Card> {
     void addDeck(Deck<T> otherDeck);
 
     List<T> getListOfCards();
+
+    int getRemainingCards();
 }

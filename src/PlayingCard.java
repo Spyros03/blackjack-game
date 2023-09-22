@@ -33,8 +33,30 @@ public class PlayingCard extends Card{
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof PlayingCard card){
+            return face.equals(card.getFace()) && suit.equals(card.getSuit()) && rank == card.getRank();
+        }
+        else{
+            return false;
+        }
+    }
+
+    @Override
     public String toString() {
         return "%s%c(%d)".formatted(face, suit.getSuitIcon(), rank);
+    }
+
+    public Suit getSuit() {
+        return suit;
+    }
+
+    public String getFace() {
+        return face;
+    }
+
+    public int getRank() {
+        return rank;
     }
 
     enum Suit {

@@ -6,5 +6,5 @@ public interface Hand<T extends PlayingCard> {
 
     int calculateHand();
 
-    void printHand();
+    String toString();
 }
