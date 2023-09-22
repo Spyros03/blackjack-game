@@ -9,13 +9,27 @@ public class BlackJackUI {
     }
 
     public static void printTable(BlackJackGame game){
-        System.out.println("                    Black Jack Board.                 ");
-        System.out.println("______________________________________________________");
+        System.out.println("                       Black Jack Table.                   ");
+        System.out.println("___________________________________________________________");
         System.out.println(game.getDealer());
         for (var player : game.getPlayers()){
             System.out.println(player);
+            if (player.hasSecondHand()){
+                System.out.println(player.secondHand);
+            }
         }
-        System.out.println("-------------------------------------------------------");
+        System.out.println("___________________________________________________________");
+    }
+
+    public static void printPlayers(BlackJackGame game, boolean showWinners){
+        System.out.println("                          Players                          ");
+        System.out.println("___________________________________________________________");
+        for (var player : game.getPlayers()){
+            String tellWinner = showWinners ? player.getBet().isWon() ? "has Won" : "" : "";
+            System.out.printf("%s's account balance: %.2f %s%n", player.getName(), player.getPlayerBank().getAmount(),
+                    tellWinner);
+        }
+        System.out.println("___________________________________________________________");
     }
 
     public static int numOfPlayers(){
@@ -33,11 +47,11 @@ public class BlackJackUI {
     }
 
     public static BlackJackPlayer newPlayer(int playerNumber) {
-        System.out.printf("Player %d enter your name: ", playerNumber);
+        System.out.printf("Player %d enter your name:", playerNumber);
         String playerName = in.nextLine();
         System.out.println();
         while (true) {
-            System.out.print("Choose initial bet Amount:");
+            System.out.print("Choose buy in amount:");
             try {
                 String amountString = in.nextLine();
                 System.out.println();
@@ -62,11 +76,11 @@ public class BlackJackUI {
         }
     }
 
-    public static BlackJackPlayer.Move getMove(int moveNumber){
+    public static BlackJackPlayer.Move getMove(int moveNumber, String playerName){
         if (moveNumber == 1){
-            System.out.println("Play your move (Hit, Stand, Split, Double).");
+            System.out.printf("%s play your move (Hit, Stand, Split, Double).%n", playerName);
         }else{
-            System.out.println("Play your move (Hit, Stand).");
+            System.out.printf("%s Play your move (Hit, Stand).%n", playerName);
         }
         while (true) {
             System.out.println("----Move----");

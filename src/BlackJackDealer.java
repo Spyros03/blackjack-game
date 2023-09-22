@@ -56,7 +56,7 @@ public class BlackJackDealer implements Hand<BlackJackPlayingCard>{
         showCards = false;
     }
 
-    public void changeDeck(Deck deck){
+    public void changeDeck(Deck<BlackJackPlayingCard> deck){
         this.cardDeck = deck;
     }
 
@@ -82,7 +82,7 @@ public class BlackJackDealer implements Hand<BlackJackPlayingCard>{
             }
             return "Dealer's Hand: " + Cards + ", Value: %d".formatted(calculateHand());
         }else {
-            return "Dealer's Hand: " + "?????" + dealerHand.get(1) + ", Value: %d".formatted(calculateHand());
+            return "Dealer's Hand: " + "?????? " + dealerHand.get(1) + ", Value: %d".formatted(calculateHand());
         }
     }
 }

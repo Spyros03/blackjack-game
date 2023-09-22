@@ -13,6 +13,7 @@ public class BlackJackGame extends CardGame<BlackJackPlayer>{
         }
         BlackJackGame game  = new BlackJackGame(players);
         players.forEach(player -> player.changeDeck(game.getDeck()));
+        BlackJackUI.printPlayers(game, false);
         do {
             round(game);
         } while (BlackJackUI.wishToContinue());
@@ -31,6 +32,7 @@ public class BlackJackGame extends CardGame<BlackJackPlayer>{
         game.dealer.dealerPlay();
         BlackJackUI.printTable(game);
         game.handleBets();
+        BlackJackUI.printPlayers(game, true);
         game.resetHands();
     }
 
@@ -71,7 +73,8 @@ public class BlackJackGame extends CardGame<BlackJackPlayer>{
             if (player.hasSecondHand() && player.secondHand.canDraw()){
                 while(true){
                     try{
-                        player.playMove(BlackJackUI.getMove(moveNumber), moveNumber);
+                        player.secondHand.playMove(BlackJackUI.getMove(moveNumber,
+                                player.secondHand.getName()), moveNumber);
                         break;
                     }catch (Exception e){
                         BlackJackUI.handleInputError(e);
@@ -81,7 +84,7 @@ public class BlackJackGame extends CardGame<BlackJackPlayer>{
             if (player.canDraw()){
                 while(true){
                     try{
-                        player.playMove(BlackJackUI.getMove(moveNumber), moveNumber);
+                        player.playMove(BlackJackUI.getMove(moveNumber, player.getName()), moveNumber);
                         break;
                     }catch (Exception e){
                         BlackJackUI.handleInputError(e);
