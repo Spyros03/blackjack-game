@@ -22,10 +22,11 @@ public class BlackJackPlayer extends CardPlayer<BlackJackPlayingCard> implements
         this.deck = deck;
     }
 
-    public BlackJackPlayer(String name, BlackJackPlayingCard playerCard, double initialAmount)
-    throws PlayerBank.InvalidAccountBalanceException{
+    public BlackJackPlayer(String name, BlackJackPlayingCard playerCard, double initialAmount,
+                           Deck<BlackJackPlayingCard> deck) throws PlayerBank.InvalidAccountBalanceException{
         super(name, playerCard);
         playerBank = new PlayerBank(initialAmount);
+        this.deck = deck;
     }
 
     public BlackJackPlayer(String name, double initialAmount)
@@ -55,8 +56,10 @@ public class BlackJackPlayer extends CardPlayer<BlackJackPlayingCard> implements
 
             case SPLIT:
                 if (moveNumber == 1 && cards.get(0).equals(cards.get(1))) {
-                    secondHand = new BlackJackPlayer(name + "second hand.", cards.get(1), 0);
-                    playerBank.transfer(activeBet.getBetAmount(), secondHand.getPlayerBank());
+                    secondHand = new BlackJackPlayer(name + "'s 2nd", cards.get(1),
+                            0, deck);
+                    playerBank.transfer(activeBet.getBetAmount(),
+                            secondHand.getPlayerBank());
                     secondHand.placeBet(activeBet.getBetAmount());
                     cards.remove(1);
                     draw();
@@ -95,7 +98,9 @@ public class BlackJackPlayer extends CardPlayer<BlackJackPlayingCard> implements
         boolean hasAce = false;
         int handValue = 0;
         for (var card : cards){
-            hasAce = card.getRank() == 11;
+            if (card.getRank() == 11) {
+                hasAce = true;
+            }
             handValue += card.getRank();
         }
         if (handValue > 21 && hasAce){
