@@ -41,7 +41,8 @@ public class BlackJackDealer implements Hand<BlackJackPlayingCard> {
         boolean hasAce = false;
         int handValue = 0;
         for (var card : dealerHand){
-            hasAce = card.getRank() == 11;
+            if (card.getRank() == 11){}
+                hasAce = true;
             handValue += card.getRank();
         }
         if (handValue > 21 && hasAce){
