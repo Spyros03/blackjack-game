@@ -143,7 +143,7 @@ public class BlackJackPlayer extends CardPlayer<BlackJackPlayingCard> implements
 
     public boolean checkForBlackJack(){
         hasBlackJack = cards.get(0).getRank() + cards.get(1).getRank() == 21;
-        canDraw = false;
+        canDraw = !hasBlackJack;
         return hasBlackJack;
     }
 

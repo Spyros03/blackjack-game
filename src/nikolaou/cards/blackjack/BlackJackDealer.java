@@ -87,7 +87,8 @@ public class BlackJackDealer implements Hand<BlackJackPlayingCard> {
             }
             return "Dealer's hand: " + Cards + ", Value: %d".formatted(calculateHand());
         }else {
-            return "Dealer's hand: " + "?????? " + dealerHand.get(1) + ", Value: %d".formatted(calculateHand());
+            return "Dealer's hand: " + "?????? " + dealerHand.get(1) + ", Value: %d".formatted(
+                    dealerHand.get(1).getRank());
         }
     }
 }

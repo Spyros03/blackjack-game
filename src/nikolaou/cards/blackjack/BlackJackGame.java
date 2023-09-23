@@ -29,6 +29,8 @@ public class BlackJackGame extends CardGame<BlackJackPlayer> {
         int moveNumber = 1;
         game.startBetting();
         game.startRound();
+        game.players.forEach(BlackJackPlayer::checkForBlackJack);
+        game.dealer.checkForBlackJack();
         while (!game.isOver()){
             BlackJackUI.printTable(game);
             game.checkTheDeck();
