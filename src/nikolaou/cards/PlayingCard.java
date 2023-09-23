@@ -1,3 +1,5 @@
+package nikolaou.cards;
+
 public class PlayingCard extends Card{
 
     final private Suit suit;
@@ -59,7 +61,7 @@ public class PlayingCard extends Card{
         return rank;
     }
 
-    enum Suit {
+    public enum Suit {
         SPADES,
         HEARTS,
         CLUB,

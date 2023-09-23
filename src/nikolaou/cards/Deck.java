@@ -1,3 +1,5 @@
+package nikolaou.cards;
+
 import java.util.List;
 
 public interface Deck<T extends Card> {

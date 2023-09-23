@@ -1,3 +1,5 @@
+package nikolaou.cards;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +34,7 @@ public abstract class CardPlayer<T extends Card>{
         return name;
     }
 
-    static class InvalidMove extends Exception{
+    public static class InvalidMove extends Exception{
         public InvalidMove() {
         }
 

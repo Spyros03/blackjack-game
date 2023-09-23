@@ -1,3 +1,7 @@
+package nikolaou.cards;
+
+import nikolaou.cards.blackjack.BlackJackPlayer;
+
 import java.util.function.Function;
 
 

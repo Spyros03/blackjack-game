@@ -1,9 +1,15 @@
+package nikolaou.cards.blackjack;
+
+import nikolaou.cards.CardGame;
+import nikolaou.cards.Deck;
+import nikolaou.cards.PlayingCardsDeck;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
 
-public class BlackJackGame extends CardGame<BlackJackPlayer>{
+public class BlackJackGame extends CardGame<BlackJackPlayer> {
 
     public static void main(String[] args) {
         int numOfPlayers = BlackJackUI.numOfPlayers();

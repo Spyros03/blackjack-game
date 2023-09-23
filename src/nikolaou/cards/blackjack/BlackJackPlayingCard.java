@@ -1,3 +1,7 @@
+package nikolaou.cards.blackjack;
+
+import nikolaou.cards.PlayingCard;
+
 public class BlackJackPlayingCard extends PlayingCard {
 
     public BlackJackPlayingCard(Suit suit, String face) throws Exception {

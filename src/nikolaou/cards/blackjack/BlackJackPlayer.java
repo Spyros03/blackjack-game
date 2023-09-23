@@ -1,7 +1,11 @@
+package nikolaou.cards.blackjack;
+
+import nikolaou.cards.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlackJackPlayer extends CardPlayer<BlackJackPlayingCard> implements Hand<BlackJackPlayingCard>{
+public class BlackJackPlayer extends CardPlayer<BlackJackPlayingCard> implements Hand<BlackJackPlayingCard> {
 
     private final PlayerBank playerBank;
     private boolean canDraw = true;
@@ -153,7 +157,7 @@ public class BlackJackPlayer extends CardPlayer<BlackJackPlayingCard> implements
         for (var card : cards){
             Cards.append(card).append(" ");
         }
-        return "%s's Hand: ".formatted(name) + Cards + ", Value: %d".formatted(calculateHand());
+        return "%s's hand: ".formatted(name) + Cards + ", Value: %d".formatted(calculateHand());
     }
 
     enum Move {

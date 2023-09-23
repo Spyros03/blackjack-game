@@ -1,3 +1,5 @@
+package nikolaou.cards;
+
 import java.util.List;
 
 public interface Hand<T extends PlayingCard> {

@@ -1,8 +1,13 @@
+package nikolaou.cards.blackjack;
+
+import nikolaou.cards.Deck;
+import nikolaou.cards.Hand;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BlackJackDealer implements Hand<BlackJackPlayingCard>{
+public class BlackJackDealer implements Hand<BlackJackPlayingCard> {
 
     private List<BlackJackPlayingCard> dealerHand;
     private Deck<BlackJackPlayingCard> cardDeck;
@@ -80,9 +85,9 @@ public class BlackJackDealer implements Hand<BlackJackPlayingCard>{
             for (var card : dealerHand) {
                 Cards.append(card).append(" ");
             }
-            return "Dealer's Hand: " + Cards + ", Value: %d".formatted(calculateHand());
+            return "Dealer's hand: " + Cards + ", Value: %d".formatted(calculateHand());
         }else {
-            return "Dealer's Hand: " + "?????? " + dealerHand.get(1) + ", Value: %d".formatted(calculateHand());
+            return "Dealer's hand: " + "?????? " + dealerHand.get(1) + ", Value: %d".formatted(calculateHand());
         }
     }
 }

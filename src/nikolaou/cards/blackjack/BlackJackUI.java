@@ -1,3 +1,5 @@
+package nikolaou.cards.blackjack;
+
 import java.util.Scanner;
 
 public class BlackJackUI {

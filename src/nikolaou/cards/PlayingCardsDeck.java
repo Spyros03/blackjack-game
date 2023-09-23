@@ -1,3 +1,7 @@
+package nikolaou.cards;
+
+import nikolaou.cards.blackjack.BlackJackPlayingCard;
+
 import java.util.*;
 
 public class PlayingCardsDeck<T extends PlayingCard> implements Deck<T>{

@@ -1,3 +1,5 @@
+package nikolaou.cards;
+
 public class PlayerBank {
 
     private double amount;
