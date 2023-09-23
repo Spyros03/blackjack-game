@@ -77,18 +77,21 @@ public class BlackJackGame extends CardGame<BlackJackPlayer> {
 
     @Override
     public void nextTurn(int moveNumber) {
+        boolean freshCreated;
         for (var player : players){
+            freshCreated = false;
             if (player.canDraw()){
                 while(true){
                     try{
                         player.playMove(BlackJackUI.getMove(moveNumber, player.getName()), moveNumber);
+                        freshCreated = true;
                         break;
                     }catch (Exception e){
                         BlackJackUI.handleInputError(e);
                     }
                 }
             }
-            if (player.hasSecondHand() && player.secondHand.canDraw()){
+            if (player.hasSecondHand() && player.secondHand.canDraw() && !freshCreated){
                 while(true){
                     try{
                         player.secondHand.playMove(BlackJackUI.getMove(moveNumber,
